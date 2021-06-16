@@ -28,6 +28,11 @@ model = keras.Sequentail([
     # input is 28x28 image ("Flatten" flattens the 28x28 into a single input 28*28  = 784 input layer
     keras.layers.Flatten(input_shape=(28, 28)),
 
-    
+    # hidden layer is 128 deep. relu returns the value, or 0 (works good enough. much faster)
+    keras.layers.Dense(unit=128, activation=tf.nn.relu),
 
+    # output is 0-10 (depending on what piece of clothing it is). return maximum.
+    keras.layers.Dense(unit=10, activation=tf.nn.softmax)
 ])
+
+
